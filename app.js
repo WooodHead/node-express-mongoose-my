@@ -8,6 +8,9 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var models=require('./model');
+var Article=models.Article;
+
 var app = express();
 
 // view engine setup
@@ -22,9 +25,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+// app.use('/', routes);
+// app.use('/users', users);
+app.get('/',function(req,res){
+  res.redirect('/articles');
+});
 
+app.get('/articles',function(req,res){
+  Article.find({},function(err,docs){
+    res.render('articles/index',{
+      title:'List of Articles',
+      articles:docs
+    });
+  });
+  // res.render('articles/index',{
+  //   title:'articles',
+  //   articles:[{title:'1111'},{title:'22222'}]
+  // });
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
