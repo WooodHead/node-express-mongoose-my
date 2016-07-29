@@ -6,4 +6,6 @@ html
   body
     h1=title
     each article in articles
-      p #{article.title}
+      h2
+        a(href='/article/'+article._id) #{article.title}
+      p #{article.body}  
