@@ -4,12 +4,12 @@ module.exports = {
   respondOrRedirect
 };
 
-function respond (res, tpl, obj, status) {
+function respond (res, view, obj, status) {
   res.format({
-    html: () => res.render(tpl, obj),
+    html: () => res.render(view, obj),
     json: () => {
       if (status) return res.status(status).json(obj);
-      res.json(obj);
+      res.json(obj)
     }
   });
 }

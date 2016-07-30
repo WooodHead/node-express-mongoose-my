@@ -1,0 +1,9 @@
+word.word
+h3
+  a(href='/words/'+word._id) #{word.word}
+p #{word.pron}
+p=word.rank
+-if(1)
+  p #{word.oxford3000}
+
+p=word.definition

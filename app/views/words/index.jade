@@ -1,0 +1,17 @@
+
+extends ../layouts/default
+
+block main
+  h1= title
+
+block content
+  - if (words.length)
+    - each word in words
+      include word
+
+    - if (pages > 1)
+      ul.pagination
+        != createPagination(pages, page)
+  - else
+    h4.muted No words.&nbsp;
+      //a(href="/words/new") create one

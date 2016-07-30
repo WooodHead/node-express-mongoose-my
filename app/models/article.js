@@ -165,7 +165,7 @@ ArticleSchema.statics = {
   list: function (options) {
     const criteria = options.criteria || {};
     const page = options.page || 0;
-    const limit = options.limit || 30;
+    const limit = options.limit || 10;
     return this.find(criteria)
       .populate('user', 'name username')
       .sort({ createdAt: -1 })
