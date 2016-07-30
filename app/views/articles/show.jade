@@ -26,15 +26,17 @@ block content
       - if (!article.isNew && article.image && article.image.files && article.image.files.length)
         img(src=article.image.cdnUri + '/mini_' + article.image.files[0])
 
-  form(action="/articles/"+article.id, method="post", onsubmit="return confirm('Are you sure?')")
+  - if (req.isAuthenticated())
+    form(action="/articles/"+article.id, method="post", onsubmit="return confirm('Are you sure?')")
     input(type='hidden', name='_csrf', value="#{csrf_token}")
     a.btn.btn-default(href='/articles/'+article._id+'/edit', title="edit") Edit
     | &nbsp;
     input(type="hidden", name="_method", value="DELETE")
     button.btn.btn-danger(type="submit") Delete
 
-  br
-  h3 Comments
-  - each comment in article.comments
-    include ../comments/comment
-  include ../comments/form
+  - if (req.isAuthenticated())
+    br
+    h3 Comments
+    - each comment in article.comments
+      include ../comments/comment
+    include ../comments/form

@@ -30,7 +30,5 @@ const defaults = {
  */
 
 module.exports = {
-  development: extend(development, defaults),
-  test: extend(test, defaults),
-  production: extend(production, defaults)
+  development: extend(development, defaults)
 }[process.env.NODE_ENV || 'development'];
