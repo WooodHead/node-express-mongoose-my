@@ -14,6 +14,7 @@ const mongoose = require('mongoose');
 /**
  * Route middlewares
  */
+ var api = require('../routes/api');
 
 const articleAuth = [auth.requiresLogin, auth.article.hasAuthorization];
 const commentAuth = [auth.requiresLogin, auth.comment.hasAuthorization];
@@ -44,8 +45,9 @@ module.exports = function(app, passport) {
     app.param('userId', users.load);
 
     // word routes
+    app.use('/api',api);
 
-    app.get('/words', words.index);
+    app.use('/words', words);
 
     // article routes
     app.param('id', articles.load);
@@ -76,7 +78,7 @@ module.exports = function(app, passport) {
         });
         obj.save();
         Word.find({}).exec(function(err, words) {
-          console.log(err);
+            console.log(err);
             console.log(words);
             res.json(words);
         });

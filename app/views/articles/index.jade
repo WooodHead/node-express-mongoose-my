@@ -4,6 +4,9 @@ block main
   h1= title
 
 block content
+  div(data-ng-app='myApp')
+    p {{100+2}}
+    div(data-ng-view)
   - if (articles.length)
     - each article in articles
       include article
