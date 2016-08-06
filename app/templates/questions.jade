@@ -1,0 +1,13 @@
+
+div(data-ng-controller='QuestionsCtrl')
+  div.panel.panel-primary
+    dir-pagination-controls(pagination-id='questions', template-url='/lib/pagination/dirPagination2.tpl.html', on-page-change='pageChanged(newPageNumber)')
+    ul
+      li(pagination-id='questions', dir-paginate-start='question in questions | itemsPerPage: limit', total-items='total',current-page='page')
+        h2 {{question.word}}
+          small  {{question.pron}}
+        ul(ng-repeat='def in question.definition')
+          li {{def}}
+      hr(dir-paginate-end)
+
+    dir-pagination-controls(pagination-id='questions', template-url='/lib/pagination/dirPagination2.tpl.html', on-page-change='pageChanged(newPageNumber)')

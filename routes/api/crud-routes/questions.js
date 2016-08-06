@@ -1,5 +1,5 @@
 var express = require('express');
-var Model = require('../../../models/question');
+var Model = require('../../../models/word');
 var router = express.Router();
 var pick = require('./pick');
 
@@ -22,7 +22,7 @@ router.get('/', function (req, res, next) {
       d.meta.limit=result.limit;
       d.meta.page=result.page;
       d.meta.pages=result.pages;
-      
+
 
 			res.json(d);
 		} else {
