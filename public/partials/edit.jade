@@ -6,7 +6,7 @@ form
     div(ng-controller='EditCtrl')
       .panel.panel-default
         .panel-body
-          form
+          form(method='post',action='article.title')
             .form-group
               label title
               input.form-control(type='text', ng-model='article.title')
@@ -18,3 +18,6 @@ form
                 .col-sm-6
                   label preview
                   div.form-control(btf-markdown='article.body')
+            .form-group
+              button.btn.btn-primary(type='submit') Save
+              a(href='#') Cancel
