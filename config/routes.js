@@ -11,6 +11,7 @@ const tags = require('../app/controllers/tags');
 const auth = require('./middlewares/authorization');
 const words = require('../app/controllers/words');
 const mongoose = require('mongoose');
+const express=require('express');
 /**
  * Route middlewares
  */
@@ -84,6 +85,11 @@ module.exports = function(app, passport) {
         });
     });
 
+    app.use(express.static('public'));
+
+    // app.get('/markdown',function(req,res){
+      // res.sendFile(__dirname+'/../public/markdown.html');
+    // });
     /**
      * Error handling
      */

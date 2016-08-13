@@ -1,5 +1,8 @@
 var myApp = angular.module('myApp', ['ngRoute',
-    'angularUtils.directives.dirPagination'
+    'angularUtils.directives.dirPagination',
+    'ngSanitize',
+    'ui.router',
+    'btford.markdown'
 ]);
 myApp.config(['$routeProvider',
     function($routeProvider) {
@@ -22,6 +25,10 @@ myApp.config(['$routeProvider',
             })
             .when('/articles', {
                 templateUrl: 'partials/articles.html',
+                controller: 'HomeCtrl'
+            })
+            .when('/articles/new', {
+                templateUrl: 'partials/edit.html',
                 controller: 'HomeCtrl'
             })
             .otherwise({

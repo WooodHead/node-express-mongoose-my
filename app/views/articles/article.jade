@@ -1,7 +1,8 @@
 article.article
   h3
     a(href='/articles/'+article._id, title=article.title) #{article.title}
-  p= article.body
+  //p= article.body
+  btf-markdown #{article.body}
 
   .meta
     span.muted= formatDate(article.createdAt)

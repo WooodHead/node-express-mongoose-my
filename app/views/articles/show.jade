@@ -4,9 +4,12 @@ block main
   h1= article.title
 
 block content
+
   .row
     .col-md-8
-      p=article.body
+      div(ng-app='myApp')
+        btf-markdown #{article.body}
+        //p=article.body
       .meta
         - if (article.user)
           - var name = article.user.name ? article.user.name : article.user.username

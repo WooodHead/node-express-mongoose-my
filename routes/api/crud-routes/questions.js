@@ -1,7 +1,11 @@
+
 var express = require('express');
 var Model = require('../../../models/word');
 var router = express.Router();
 var pick = require('./pick');
+
+
+
 
 router.get('/', function (req, res, next) {
 	var options = req.query || {};

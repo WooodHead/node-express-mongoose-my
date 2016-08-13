@@ -1,0 +1,20 @@
+
+h1 partials/edit.html
+
+form
+  div(ng-app='myApp')
+    div(ng-controller='EditCtrl')
+      .panel.panel-default
+        .panel-body
+          form
+            .form-group
+              label title
+              input.form-control(type='text', ng-model='article.title')
+            .form-group
+              .markdown-preview
+                .col-sm-6
+                  label content
+                  textarea.form-control(ng-model='article.body')
+                .col-sm-6
+                  label preview
+                  div.form-control(btf-markdown='article.body')

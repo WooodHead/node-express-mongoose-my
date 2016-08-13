@@ -26,9 +26,15 @@ angular.module('myApp').factory('CRUD', ['$http', function($http) {
 							if(limit){
 								config.params.limit=limit;
 							}
-							var resUrl='/api/articles';
+							var resUrl='/articles';
 							return $http.get(resUrl, config);
-						}
+						},
+            findOne: function(_id) {
+							var config={params:{id:_id}};
+							var resUrl='/articles';
+							return $http.get(resUrl, config);
+						},
+
         }
     };
 

@@ -1,8 +1,12 @@
 
-<h1>articles</h1>
+<h1>articles partial</h1>
 <div data-ng-controller="ArticlesCtrl">
   <p>{{100+2}}</p>
   <div ng-repeat="article in articles">
-    <p>{{article.title}}</p>
+    <h1>{{article.title}}</h1>
+    <div btf-markdown='article.body'>
+
   </div>
 </div>
+
+<hr/>
